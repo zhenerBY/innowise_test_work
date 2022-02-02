@@ -5,15 +5,15 @@ from .models import Message,Ticket
 
 class MessagesAdmin(admin.ModelAdmin):
     list_display = ('id', 'ticket', 'author',)
-    list_display_links = ('author',)
+    list_display_links = ('ticket', 'author',)
     search_fields = ('ticket', 'author',)
     ordering = ('ticket',)
 
 
 class TicketsAdmin(admin.ModelAdmin):
-    list_display = ('id', 'creator', 'status', 'created_at', 'updated_at')
-    list_display_links = ('creator', 'status')
-    search_fields = ('creator', 'status')
+    list_display = ('id', 'title', 'creator', 'status', 'created_at', 'updated_at')
+    list_display_links = ('title', 'creator', 'status')
+    search_fields = ('title', 'creator')
     ordering = ('ticket',)
 
 

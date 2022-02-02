@@ -22,6 +22,7 @@ class TicketSerializer(serializers.ModelSerializer):
         model = Ticket
         fields = [
             'id',
+            'title',
             'creator',
             'created_at',
             'updated_at',
@@ -38,7 +39,4 @@ class UserSerializer(serializers.ModelSerializer):
             'first_name',
             'last_name',
             'email',
-            'is_superuser',
-            'is_staff',
-            'is_active',
         ]

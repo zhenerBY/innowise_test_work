@@ -7,6 +7,7 @@ class Ticket(models.Model):
         CLOSED = 'CLD', 'Closed'
         FROZEN = 'FRO', 'Frozen'
 
+    title = models.CharField(max_length=250, verbose_name='Title')
     creator = models.ForeignKey('auth.User',
                                 on_delete=models.CASCADE,
                                 verbose_name='creator',
@@ -18,7 +19,7 @@ class Ticket(models.Model):
     status = models.CharField(max_length=3, choices=TicketStatus.choices, default=TicketStatus.OPEN)
 
     def __str__(self):
-        return f'Ticket - {self.creator}|{self.status}'
+        return f'Ticket - {self.creator} | {self.title} | {self.status}'
 
     class Meta:
         ordering = ['-created_at']
