@@ -18,6 +18,8 @@ class MessageSerializer(serializers.ModelSerializer):
 
 
 class TicketSerializer(serializers.ModelSerializer):
+    ticket_messages = MessageSerializer(many=True, read_only=True)
+
     class Meta:
         model = Ticket
         fields = [
@@ -27,6 +29,7 @@ class TicketSerializer(serializers.ModelSerializer):
             'created_at',
             'updated_at',
             'status',
+            'ticket_messages',
         ]
 
 

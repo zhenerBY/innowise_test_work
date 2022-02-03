@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from .models import Message,Ticket
+from .models import Message, Ticket
 
 
 class MessagesAdmin(admin.ModelAdmin):
@@ -14,7 +14,7 @@ class TicketsAdmin(admin.ModelAdmin):
     list_display = ('id', 'title', 'creator', 'status', 'created_at', 'updated_at')
     list_display_links = ('title', 'creator', 'status')
     search_fields = ('title', 'creator')
-    ordering = ('ticket',)
+    ordering = ('creator',)
 
 
 admin.site.register(Message, MessagesAdmin)

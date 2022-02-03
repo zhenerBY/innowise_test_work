@@ -32,7 +32,7 @@ class Message(models.Model):
     ticket = models.ForeignKey(Ticket,
                                on_delete=models.CASCADE,
                                verbose_name='Ticket',
-                               related_name='ticket')
+                               related_name='ticket_messages')
     author = models.ForeignKey('auth.User',
                                 on_delete=models.CASCADE,
                                 verbose_name='Author',
