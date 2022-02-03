@@ -34,9 +34,9 @@ class Message(models.Model):
                                verbose_name='Ticket',
                                related_name='ticket_messages')
     author = models.ForeignKey('auth.User',
-                                on_delete=models.CASCADE,
-                                verbose_name='Author',
-                                related_name='author')
+                               on_delete=models.CASCADE,
+                               verbose_name='Author',
+                               related_name='author')
     created_at = models.DateTimeField(auto_now_add=True,
                                       verbose_name='Created')
 
