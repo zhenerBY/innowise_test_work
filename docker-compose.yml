@@ -1,0 +1,17 @@
+version: '3.9'
+services:
+  apidb:
+    image: postgres:14.1-alpine
+    environment:
+      POSTGRES_PASSWORD: password
+      POSTGRES_USER: user
+      POSTGRES_DB: base
+  api:
+    build: .
+    ports:
+      - 8000:8000
+    command: >
+      sh -c "./wait-for-it.sh apidb:5432 &&
+      ./start.sh"
+    depends_on:
+      - apidb
